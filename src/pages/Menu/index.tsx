@@ -76,18 +76,6 @@ const Dashboard: React.FC = () => {
             </Link>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <Link to="/revenues">
-              <Button style={{ fontSize: 20 }}>Faturamento</Button>
-            </Link>
-          </Col>
-          <Col>
-            <Link to="/imports">
-              <Button style={{ fontSize: 20 }}>Importações</Button>
-            </Link>
-          </Col>
-        </Row>
       </Col>
     </Container>
   );

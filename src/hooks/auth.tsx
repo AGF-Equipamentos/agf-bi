@@ -50,9 +50,6 @@ const AuthProvider: React.FC = ({ children }) => {
       const margin = localStorage.getItem(
         `@AGF-BI:fat?filial=0101,0102&ano=2020,%202021&devolution=no`,
       );
-      const productivity = localStorage.getItem(
-        `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
-      );
       const breakers = localStorage.getItem(
         `@AGF-BI:pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
       );
@@ -253,22 +250,6 @@ const AuthProvider: React.FC = ({ children }) => {
         await mutate('estoques?filial=0101&grupo=3050&armazem=01,06', data);
         localStorage.setItem(
           `@AGF-BI:estoques?filial=0101&grupo=3050&armazem=01,06`,
-          JSON.stringify(data),
-        );
-      }
-
-      if (productivity) {
-        await mutate(
-          'ops?filial=0101&fechado=true&ano=2021',
-          JSON.parse(productivity),
-        );
-      } else {
-        const data = await api
-          .get('ops?filial=0101&fechado=true&ano=2021')
-          .then(res => res.data);
-        await mutate('ops?filial=0101&fechado=true&ano=2021', data);
-        localStorage.setItem(
-          `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
           JSON.stringify(data),
         );
       }
