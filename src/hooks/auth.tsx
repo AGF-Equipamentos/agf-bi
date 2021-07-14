@@ -267,10 +267,10 @@ const AuthProvider: React.FC = ({ children }) => {
           .get('ops?filial=0101&fechado=true&ano=2021')
           .then(res => res.data);
         await mutate('ops?filial=0101&fechado=true&ano=2021', data);
-        localStorage.setItem(
-          `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
-          JSON.stringify(data),
-        );
+        // localStorage.setItem(
+        //   `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
+        //   JSON.stringify(data),
+        // );
       }
 
       setLoading(false);
