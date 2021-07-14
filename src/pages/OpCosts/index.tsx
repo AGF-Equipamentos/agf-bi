@@ -81,7 +81,7 @@ const OpCosts: React.FC = () => {
         },
         {
           caption: 'CUSTO',
-          dataField: 'CUSTO',
+          dataField: 'CUSTO_UN',
           dataType: 'number',
           format(data2: any) {
             return `${new Intl.NumberFormat('pt-BR', {

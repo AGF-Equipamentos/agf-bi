@@ -32,16 +32,21 @@ const Route: React.FC<RouterProps> = ({
     <ReactDOMRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate === !!logged ? (
-          <Component />
-        ) : (
-          <Redirect
-            to={{
-              pathname: isPrivate ? '/' : '/menu',
-              state: { from: location },
-            }}
-          />
-        );
+        switch (isPrivate) {
+          case !!logged:
+            return <Component />;
+          case false:
+            return <Component />;
+          default:
+            return (
+              <Redirect
+                to={{
+                  pathname: isPrivate ? '/' : `/menu`,
+                  state: { from: location },
+                }}
+              />
+            );
+        }
       }}
     />
   );

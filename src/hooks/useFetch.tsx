@@ -10,6 +10,7 @@ interface Response {
 export function useFetch<Data = any, Error = any>(
   url: string,
   params: object = {},
+  refresh = 120000,
 ): Response {
   const { data, error, mutate } = useSWR<Data, Error>(
     url,
@@ -22,7 +23,7 @@ export function useFetch<Data = any, Error = any>(
       return response.data;
     },
     {
-      refreshInterval: 120000,
+      refreshInterval: refresh,
     },
   );
 
