@@ -13,7 +13,7 @@ const Revenues: React.FC = () => {
           title="Faturamento"
           width="1280"
           height="768"
-          src="https://app.powerbi.com/view?r=eyJrIjoiZWNiZDIyZWYtNWQzYS00Yjg0LTllZTEtMzc5NGNkNzUyOTFlIiwidCI6IjY3ZTY2NjE5LWMwMTAtNDVlZi05ZWJmLTY0OTI4OTUzNDE5YyJ9&pageName=ReportSectioneee129ed98772374c430"
+          src={process.env.REACT_APP_REVENUE_PB_LINK}
           frameBorder="0"
           allowFullScreen
         />

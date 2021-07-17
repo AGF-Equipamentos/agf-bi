@@ -13,7 +13,7 @@ const Productivity: React.FC = () => {
           title="Produtividade"
           width="1280"
           height="768"
-          src="https://app.powerbi.com/view?r=eyJrIjoiZGYwNDRjMjYtMDhlNi00NDQzLWI3NDUtMzlmMzQ5MTJiMTYwIiwidCI6IjY3ZTY2NjE5LWMwMTAtNDVlZi05ZWJmLTY0OTI4OTUzNDE5YyJ9"
+          src={process.env.REACT_APP_PRODUCTIVITY_PB_LINK}
           frameBorder="0"
           allowFullScreen
         />
