@@ -23,6 +23,9 @@ jobs:
       run: yarn build
       env:
         REACT_APP_SERVER: http://192.168.2.250:9001
+        REACT_APP_REVENUE_PB_LINK: ${{ secrets.REACT_APP_REVENUE_PB_LINK }}
+        REACT_APP_PRODUCTIVITY_PB_LINK: ${{ secrets.REACT_APP_PRODUCTIVITY_PB_LINK }}
+        REACT_APP_IMPORTEXPORT_PB_LINK: ${{ secrets.REACT_APP_IMPORTEXPORT_PB_LINK }}
       
     - name: Copy project to AGF
       uses: appleboy/scp-action@master
