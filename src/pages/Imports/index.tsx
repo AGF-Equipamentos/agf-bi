@@ -13,7 +13,7 @@ const Imports: React.FC = () => {
           title="Importações"
           width="1280"
           height="768"
-          src="https://app.powerbi.com/view?r=eyJrIjoiMzZlMzU0MDgtNDE4OC00ZDBjLWFhYTYtYThiZjlmMDc0NDY5IiwidCI6IjY3ZTY2NjE5LWMwMTAtNDVlZi05ZWJmLTY0OTI4OTUzNDE5YyJ9&pageName=ReportSectionbe68e27155d9c94702ce"
+          src={process.env.REACT_APP_IMPORTEXPORT_PB_LINK}
           frameBorder="0"
           allowFullScreen
         />
