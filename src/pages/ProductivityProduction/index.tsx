@@ -31,7 +31,7 @@ const ProductivityProduction: React.FC = () => {
   );
 
   const realizedHours = 9567.4;
-  
+
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
@@ -112,6 +112,9 @@ const ProductivityProduction: React.FC = () => {
     { product: 'QC600', hours: 40 },
     { product: 'QC800', hours: 40 },
     { product: 'MW46V', hours: 2400 },
+    { product: 'MTL20', hours: 2600 },
+    { product: 'MTL12', hours: 1600 },
+    { product: 'BH07S', hours: 422 },
   ];
 
   const products = [
@@ -157,6 +160,9 @@ const ProductivityProduction: React.FC = () => {
     'QC600',
     'QC800',
     'MW46V',
+    'MTL20',
+    'MTL12',
+    'BH07S',
   ];
 
   hoursActualMonth = data
