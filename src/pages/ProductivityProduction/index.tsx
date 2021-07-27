@@ -17,7 +17,56 @@ export interface Data {
   MARGEM: number;
   MES_REAL: string;
   ANO_REAL: string;
+  HOUR: number;
 }
+
+const products = [
+  'VC66',
+  'GP120',
+  'GS165',
+  'GS190',
+  'AE105',
+  'MF25P2',
+  'MF75P2',
+  'MF100S2',
+  'VB45E',
+  'B02M',
+  'BKC03M',
+  'VL66P',
+  'BH05P',
+  'BH05S',
+  'CE25P10001',
+  'CE25P',
+  'MF25S2',
+  'MF25P2P',
+  'AE340',
+  'MF75S2',
+  'PFF-280',
+  'PFF-280CIR90',
+  'MF50P2',
+  'REMAN',
+  'GS125',
+  'GS230',
+  'GS260',
+  'SE08P',
+  'CP420',
+  'CP420S2',
+  'CG38',
+  'CG25',
+  'EA66P',
+  'FA20H',
+  'MF40P2',
+  'CH250',
+  'CH400',
+  'QC200',
+  'QC400',
+  'QC600',
+  'QC800',
+  'MW46V',
+  'MTL20',
+  'MTL12',
+  'BH07S',
+];
 
 const hours = [
   { product: 'VC66', hours: 20 },
@@ -75,54 +124,6 @@ const hours = [
   { product: 'BH07S', hours: 422 },
 ];
 
-const products = [
-  'VC66',
-  'GP120',
-  'GS165',
-  'GS190',
-  'AE105',
-  'MF25P2',
-  'MF75P2',
-  'MF100S2',
-  'VB45E',
-  'B02M',
-  'BKC03M',
-  'VL66P',
-  'BH05P',
-  'BH05S',
-  'CE25P10001',
-  'CE25P',
-  'MF25S2',
-  'MF25P2P',
-  'AE340',
-  'MF75S2',
-  'PFF-280',
-  'PFF-280CIR90',
-  'MF50P2',
-  'REMAN',
-  'GS125',
-  'GS230',
-  'GS260',
-  'SE08P',
-  'CP420',
-  'CP420S2',
-  'CG38',
-  'CG25',
-  'EA66P',
-  'FA20H',
-  'MF40P2',
-  'CH250',
-  'CH400',
-  'QC200',
-  'QC400',
-  'QC600',
-  'QC800',
-  'MW46V',
-  'MTL20',
-  'MTL12',
-  'BH07S',
-];
-
 const ProductivityProduction: React.FC = () => {
   const mesAtual = `0${getMonth(new Date()) + 1}`.slice(-2);
   const [animationState, setAnimationState] = useState({
@@ -130,11 +131,10 @@ const ProductivityProduction: React.FC = () => {
     isPaused: true,
   });
   const { data } = useFetch<Data[]>(
-    `ops?filial=0101&fechado=true&ano=2021`,
+    `ops?filial=0101&fechado=true&ano=2021&produto=${products.join("','")}`,
     {},
     6000,
   );
-
   const realizedHours = 9567.4;
 
   let hoursActualMonth = 0;
@@ -163,10 +163,7 @@ const ProductivityProduction: React.FC = () => {
   };
 
   hoursActualMonth = data
-    .filter(
-      (dataItem: Data) =>
-        products.includes(dataItem.PRODUTO) && dataItem.MES_REAL === mesAtual,
-    )
+    .filter((dataItem: Data) => dataItem.MES_REAL === mesAtual)
     .map((dataItem: Data) => {
       const hour = hours.filter(item => item.product === dataItem.PRODUTO);
       const newItem = {
@@ -175,7 +172,7 @@ const ProductivityProduction: React.FC = () => {
       };
       return newItem;
     })
-    .reduce((acc: number, item: any) => {
+    .reduce((acc: number, item: Data) => {
       return acc + item.HOUR;
     }, 0);
 
