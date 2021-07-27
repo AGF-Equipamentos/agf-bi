@@ -8,6 +8,7 @@ import animationData from '../../assets/fireworks.json';
 import { Container as Cont } from './styles';
 import { useFetch } from '../../hooks/useFetch';
 import Header from '../../components/Header';
+import Loader from '../../components/Loader';
 
 export interface Data {
   PRODUTO: string;
@@ -129,7 +130,7 @@ const ProductivityProduction: React.FC = () => {
     isPaused: true,
   });
   const { data } = useFetch<Data[]>(
-    `ops?filial=0101&fechado=true&ano=2021&produto=${products}`,
+    `ops?filial=0101&fechado=true&ano=2021`,
     {},
     6000,
   );
@@ -149,11 +150,7 @@ const ProductivityProduction: React.FC = () => {
   }, [hoursActualMonth, data]);
 
   if (!data) {
-    return (
-      <Container>
-        <h1>Carregando...</h1>
-      </Container>
-    );
+    return <Loader />;
   }
 
   const defaultOptions = {
