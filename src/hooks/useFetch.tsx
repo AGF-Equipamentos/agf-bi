@@ -16,10 +16,13 @@ export function useFetch<Data = any, Error = any>(
     url,
     async urlparam => {
       const response = await api.get(urlparam, params);
-      localStorage.setItem(
-        `@AGF-BI:${urlparam}`,
-        JSON.stringify(response.data),
-      );
+      if (localStorage.getItem(`@AGF-BI:${urlparam}`) !== null) {
+        localStorage.setItem(
+          `@AGF-BI:${urlparam}`,
+          JSON.stringify(response.data),
+        );
+      }
+
       return response.data;
     },
     {
