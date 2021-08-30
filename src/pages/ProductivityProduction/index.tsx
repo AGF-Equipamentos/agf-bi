@@ -66,6 +66,7 @@ const products = [
   'MTL20',
   'MTL12',
   'BH07S',
+  'SW25S',
 ];
 
 const hours = [
