@@ -122,6 +122,7 @@ const hours = [
   { product: 'MTL20', hours: 2600 },
   { product: 'MTL12', hours: 1600 },
   { product: 'BH07S', hours: 422 },
+  { product: 'SW25S', hours: 360 },
 ];
 
 const ProductivityProduction: React.FC = () => {
