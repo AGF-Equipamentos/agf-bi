@@ -75,6 +75,7 @@ const products = [
   'BH07S',
   'SW25S',
   'MF25P2PE',
+  'MF100S2E1000',
 ];
 
 const hours = [
@@ -132,6 +133,7 @@ const hours = [
   { product: 'MTL12', hours: 1600 },
   { product: 'BH07S', hours: 422 },
   { product: 'SW25S', hours: 360 },
+  { product: 'MF100S2E1000', hours: 131 },
 ];
 
 const ProductivityProduction: React.FC = () => {
@@ -145,8 +147,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 11858.53;
-
+  const realizedHours = 11645.65;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
