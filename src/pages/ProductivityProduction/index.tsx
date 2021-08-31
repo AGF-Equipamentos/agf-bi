@@ -29,6 +29,7 @@ const products = [
   'MF25P2',
   'MF75P2',
   'MF100S2',
+  'MF100S2E',
   'VB45E',
   'B02M',
   'BKC03M',
@@ -67,6 +68,8 @@ const products = [
   'MTL12',
   'BH07S',
   'SW25S',
+  'Suporte Rompedor Escav.',
+  'Suporte Romp. Mini Carreg.',
 ];
 
 const hours = [
@@ -124,6 +127,8 @@ const hours = [
   { product: 'MTL12', hours: 1600 },
   { product: 'BH07S', hours: 422 },
   { product: 'SW25S', hours: 360 },
+  { product: 'Suporte Rompedor Escav.', hours: 6 },
+  { product: 'Suporte Romp. Mini Carreg.', hours: 6 },
 ];
 
 const ProductivityProduction: React.FC = () => {
