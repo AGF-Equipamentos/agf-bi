@@ -70,12 +70,9 @@ const products = [
   'SW25S',
   'MF25S2E',
   'MF75S2E',
-  'MTL20',
-  'MTL12',
-  'BH07S',
-  'SW25S',
   'MF25P2PE',
   'MF100S2E1000',
+  'SW25P',
 ];
 
 const hours = [
@@ -134,6 +131,7 @@ const hours = [
   { product: 'BH07S', hours: 422 },
   { product: 'SW25S', hours: 360 },
   { product: 'MF100S2E1000', hours: 131 },
+  { product: 'SW25P', hours: 360 },
 ];
 
 const ProductivityProduction: React.FC = () => {
