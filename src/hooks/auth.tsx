@@ -48,7 +48,7 @@ const AuthProvider: React.FC = ({ children }) => {
         `@AGF-BI:op-costs?filial=0101&ano=2019,%202020,%202021`,
       );
       const margin = localStorage.getItem(
-        `@AGF-BI:fat?filial=0101,0102&ano=2020,%202021&devolution=no`,
+        `@AGF-BI:fat?filial=0101,0102&ano=2020,2021,2022&devolution=no`,
       );
       // const productivity = localStorage.getItem(
       //   `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
@@ -166,19 +166,19 @@ const AuthProvider: React.FC = ({ children }) => {
 
       if (margin) {
         await mutate(
-          'fat?filial=0101,0102&ano=2020,%202021&devolution=no',
+          'fat?filial=0101,0102&ano=2020,2021,2022&devolution=no',
           JSON.parse(margin),
         );
       } else {
         const data = await api
-          .get('fat?filial=0101,0102&ano=2020,%202021&devolution=no')
+          .get('fat?filial=0101,0102&ano=2020,2021,2022&devolution=no')
           .then(res => res.data);
         await mutate(
-          'fat?filial=0101,0102&ano=2020,%202021&devolution=no',
+          'fat?filial=0101,0102&ano=2020,2021,2022&devolution=no',
           data,
         );
         localStorage.setItem(
-          `@AGF-BI:fat?filial=0101,0102&ano=2020,%202021&devolution=no`,
+          `@AGF-BI:fat?filial=0101,0102&ano=2020,2021,2022&devolution=no`,
           JSON.stringify(data),
         );
       }
