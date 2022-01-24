@@ -26,7 +26,7 @@ export interface Data {
 const OpCosts: React.FC = () => {
   const [productDescription, setProductDescription] = useState('');
   const { data } = useFetch<Data[]>(
-    'op-costs?filial=0101&ano=2019,%202020,%202021',
+    'op-costs?filial=0101&ano=2020,%202021,%202022',
   );
   const [dataSource, setDataSource] = useState<PivotGridDataSource>();
   const [filter, setFilter] = useState('Pesquisar pelo descrição');
