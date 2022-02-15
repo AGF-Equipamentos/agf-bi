@@ -47,9 +47,9 @@ const AuthProvider: React.FC = ({ children }) => {
       const opCosts = localStorage.getItem(
         `@AGF-BI:op-costs?filial=0101&ano=2019,%202020,%202021`,
       );
-      const margin = localStorage.getItem(
-        `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
-      );
+      // const margin = localStorage.getItem(
+      //   `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
+      // );
       // const productivity = localStorage.getItem(
       //   `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
       // );
@@ -143,7 +143,7 @@ const AuthProvider: React.FC = ({ children }) => {
           data,
         );
         localStorage.setItem(
-          `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
+          `@AGF-BI:fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
           JSON.stringify(data),
         );
       }
@@ -164,24 +164,21 @@ const AuthProvider: React.FC = ({ children }) => {
         );
       }
 
-      if (margin) {
-        await mutate(
-          'fat?filial=0101,0102&ano=2021,2022&devolution=no',
-          JSON.parse(margin),
-        );
-      } else {
-        const data = await api
-          .get('fat?filial=0101,0102&ano=2021,2022&devolution=no')
-          .then(res => res.data);
-        await mutate(
-          'fat?filial=0101,0102&ano=2021,2022&devolution=no',
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
-          JSON.stringify(data),
-        );
-      }
+      // if (margin) {
+      //   await mutate(
+      //     'fat?filial=0101,0102&ano=2021,2022&devolution=no',
+      //     JSON.parse(margin),
+      //   );
+      // } else {
+      //   const data = await api
+      //     .get('fat?filial=0101,0102&ano=2021,2022&devolution=no')
+      //     .then(res => res.data);
+      //   await mutate('fat?filial=0101,0102&ano=2021,2022&devolution=no', data);
+      //   localStorage.setItem(
+      //     `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
+      //     JSON.stringify(data),
+      //   );
+      // }
 
       if (breakers) {
         await mutate(
