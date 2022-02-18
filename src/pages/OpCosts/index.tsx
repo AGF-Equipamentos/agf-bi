@@ -200,13 +200,15 @@ const OpCosts: React.FC = () => {
     [handleSubmit],
   );
 
-  if (!data) {
-    return (
-      <Container>
-        <h1>Carregando...</h1>
-      </Container>
-    );
-  }
+  // if (!data) {
+  //   return (
+  //     <Container>
+  //       <h1>Carregando...</h1>
+  //     </Container>
+  //   );
+  // }
+
+  // console.log(data);
 
   return (
     <Cont>

@@ -17,17 +17,9 @@ export function useFetch<Data = any, Error = any>(
     url,
     async urlparam => {
       if (noCache === false) {
-        const localData = localStorage.getItem(`@AGF-BI:${urlparam}`);
-        if (localData === null) {
-          const response = await api.get(urlparam, params);
-          localStorage.setItem(
-            `@AGF-BI:${urlparam}`,
-            JSON.stringify(response.data),
-          );
+        const response = await api.get(urlparam, params);
 
-          return response.data;
-        }
-        return JSON.parse(localData);
+        return response.data;
       }
       const response = await api.get(urlparam, params);
       localStorage.removeItem(`@AGF-BI:${urlparam}`);
