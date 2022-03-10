@@ -38,6 +38,7 @@ const products = [
   'CP420S2',
   'EA66P',
   'FA20H',
+  'FA24H',
   'GP120',
   'GS125',
   'GS165',
@@ -97,6 +98,7 @@ const hours = [
   { product: 'CP420S2', hours: 24 },
   { product: 'EA66P', hours: 10 },
   { product: 'FA20H', hours: 100 },
+  { product: 'FA24H', hours: 100 },
   { product: 'GP120', hours: 4 },
   { product: 'GS125', hours: 120 },
   { product: 'GS165', hours: 120 },
@@ -149,7 +151,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 10071.25;
+  const realizedHours = 11860.51;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
