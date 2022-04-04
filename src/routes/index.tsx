@@ -20,6 +20,8 @@ import Productivity from '../pages/Productivity';
 import ProductivityProduction from '../pages/ProductivityProduction';
 import Revenues from '../pages/Revenues';
 import Imports from '../pages/Imports';
+import SalesCompressors from '../pages/SalesCompressors';
+import SalesPolitrizes from '../pages/SalesPolitrizes';
 
 const Container = styled.div`
   display: flex;
@@ -78,6 +80,8 @@ const Routes: React.FC = () => {
       <Route path="/plates" component={Plates} isPrivate />
       <Route path="/revenues" component={Revenues} isPrivate />
       <Route path="/imports" component={Imports} />
+      <Route path="/sales-compressors" component={SalesCompressors} isPrivate />
+      <Route path="/sales-politrizes" component={SalesPolitrizes} isPrivate />
     </Switch>
   );
 };

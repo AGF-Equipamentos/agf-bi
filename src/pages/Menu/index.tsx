@@ -27,10 +27,24 @@ const Dashboard: React.FC = () => {
         </Row>
         <Row>
           <Col>
+            <Link to="/sales-politrizes">
+              <Button style={{ fontSize: 20 }}>
+                Vendas - Politrizes e acessorios
+              </Button>
+            </Link>
+          </Col>
+          <Col>
+            <Link to="/sales-compressors">
+              <Button style={{ fontSize: 20 }}>Vendas - Compressores</Button>
+            </Link>
+          </Col>
+          <Col>
             <Link to="/sales-romp">
               <Button style={{ fontSize: 20 }}>Vendas - Rompedores</Button>
             </Link>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <Link to="/sales-mfs">
               <Button style={{ fontSize: 20 }}>Vendas - Máquinas à Fio</Button>
@@ -41,13 +55,13 @@ const Dashboard: React.FC = () => {
               <Button style={{ fontSize: 20 }}>Vendas - Geradores</Button>
             </Link>
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Link to="/sales-outros">
               <Button style={{ fontSize: 20 }}>Vendas - Outros</Button>
             </Link>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <Link to="/op-costs">
               <Button style={{ fontSize: 20 }}>Custo de Fabricação</Button>
@@ -58,13 +72,13 @@ const Dashboard: React.FC = () => {
               <Button style={{ fontSize: 20 }}>Margem dos produtos</Button>
             </Link>
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Link to="/productivity">
               <Button style={{ fontSize: 20 }}>Produtividade</Button>
             </Link>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <Link to="/breakers">
               <Button style={{ fontSize: 20 }}>Ordens Rompedores</Button>
@@ -75,13 +89,13 @@ const Dashboard: React.FC = () => {
               <Button style={{ fontSize: 20 }}>PCs Chapas</Button>
             </Link>
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Link to="/revenues">
               <Button style={{ fontSize: 20 }}>Faturamento</Button>
             </Link>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <Link to="/imports">
               <Button style={{ fontSize: 20 }}>Importações</Button>
