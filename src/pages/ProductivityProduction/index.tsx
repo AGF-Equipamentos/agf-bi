@@ -67,7 +67,6 @@ const products = [
   'MF75P2E',
   'MF75S2',
   'MF75S2E',
-  'MLT12',
   'MRA',
   'MRD',
   'MTL12',
