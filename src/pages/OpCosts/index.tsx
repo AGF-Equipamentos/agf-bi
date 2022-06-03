@@ -27,6 +27,8 @@ const OpCosts: React.FC = () => {
   const [productDescription, setProductDescription] = useState('');
   const { data } = useFetch<Data[]>(
     'op-costs?filial=0101&ano=2020,%202021,%202022',
+    {},
+    300000,
   );
   const [dataSource, setDataSource] = useState<PivotGridDataSource>();
   const [filter, setFilter] = useState('Pesquisar pelo descrição');
@@ -222,7 +224,7 @@ const OpCosts: React.FC = () => {
             aria-describedby="basic-addon2"
             autoFocus
             onKeyPress={keyPressed}
-            onChange={e => setProductDescription(e.target.value)}
+            onChange={(e: any) => setProductDescription(e.target.value)}
           />
           <DropdownButton
             as={InputGroup.Append}

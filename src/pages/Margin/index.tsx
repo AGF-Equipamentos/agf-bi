@@ -31,8 +31,7 @@ const Margin: React.FC = () => {
   const { data } = useFetch<Data[]>(
     'fat?filial=0101,0102&ano=2021,2022&devolution=no',
     {},
-    120000,
-    true,
+    300000,
   );
   const [dataSource, setDataSource] = useState<PivotGridDataSource>();
   const [dataFiltered, setDataFiltered] = useState(data);
@@ -272,7 +271,7 @@ const Margin: React.FC = () => {
             aria-describedby="basic-addon2"
             autoFocus
             onKeyPress={keyPressed}
-            onChange={e => setProductDescription(e.target.value)}
+            onChange={(e: any) => setProductDescription(e.target.value)}
           />
           <DropdownButton
             as={InputGroup.Append}
