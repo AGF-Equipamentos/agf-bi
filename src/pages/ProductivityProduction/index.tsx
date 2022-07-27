@@ -173,7 +173,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 10063.59;
+  const realizedHours = 10525.17;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
