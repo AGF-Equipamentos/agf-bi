@@ -12,7 +12,7 @@ export interface Data {
   QTD: number;
 }
 
-const SalesPolitrizes: React.FC = () => {
+const SalesPolitriz: React.FC = () => {
   const { data } = useFetch<Data[]>(
     `fat?filial=0101&grupo=0580&ano=2020,%202021,%202022`,
   );
@@ -27,7 +27,7 @@ const SalesPolitrizes: React.FC = () => {
 
   return (
     <Container>
-      <Header title="Vendas -  Politrizes e acessorios" />
+      <Header title="Vendas -  Politriz" />
 
       <PivotTable
         data={data}
@@ -40,4 +40,4 @@ const SalesPolitrizes: React.FC = () => {
   );
 };
 
-export default SalesPolitrizes;
+export default SalesPolitriz;

@@ -21,7 +21,7 @@ import ProductivityProduction from '../pages/ProductivityProduction';
 import Revenues from '../pages/Revenues';
 import Imports from '../pages/Imports';
 import SalesCompressors from '../pages/SalesCompressors';
-import SalesPolitrizes from '../pages/SalesPolitrizes';
+import SalesPolitriz from '../pages/SalesPolitriz';
 
 const Container = styled.div`
   display: flex;
@@ -63,25 +63,86 @@ const Routes: React.FC = () => {
 
   return (
     <Switch>
-      <Route path="/" exact component={SignIn} />
+      <Route path="/" exact component={SignIn} title="Login | AGF Bi" />
       <Route path="/menu" component={Menu} isPrivate />
-      <Route path="/sales-mfs" component={SalesMFs} isPrivate />
-      <Route path="/sales-romp" component={SalesRomp} isPrivate />
-      <Route path="/sales-ger" component={SalesGer} isPrivate />
-      <Route path="/sales-outros" component={SalesOutros} isPrivate />
-      <Route path="/op-costs" component={OpCosts} isPrivate />
-      <Route path="/margin" component={Margin} isPrivate />
-      <Route path="/productivity" component={Productivity} isPrivate />
+      <Route
+        path="/sales-politrizes"
+        component={SalesPolitriz}
+        title="Vendas - Politriz | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/sales-compressors"
+        component={SalesCompressors}
+        title="Vendas - Compressores | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/sales-mfs"
+        component={SalesMFs}
+        title="Vendas - Máquinas à fio | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/sales-romp"
+        component={SalesRomp}
+        title="Vendas - Rompedores | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/sales-ger"
+        component={SalesGer}
+        title="Vendas - Geradores | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/sales-outros"
+        component={SalesOutros}
+        title="Vendas - Outros | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/op-costs"
+        component={OpCosts}
+        title="Custo de Fabricação | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/margin"
+        component={Margin}
+        title="Margem dos Produtos | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/productivity"
+        component={Productivity}
+        title="Produtividade | AGF Bi"
+        isPrivate
+      />
       <Route
         path="/productivityproduction"
         component={ProductivityProduction}
+        title="Produtividade Produção | AGF Bi"
       />
-      <Route path="/breakers" component={Breakers} isPrivate />
-      <Route path="/plates" component={Plates} isPrivate />
-      <Route path="/revenues" component={Revenues} isPrivate />
-      <Route path="/imports" component={Imports} />
-      <Route path="/sales-compressors" component={SalesCompressors} isPrivate />
-      <Route path="/sales-politrizes" component={SalesPolitrizes} isPrivate />
+      <Route
+        path="/breakers"
+        component={Breakers}
+        title="Ordens Rompedores | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/plates"
+        component={Plates}
+        title="PCs Chapas | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/revenues"
+        component={Revenues}
+        title="Faturamento | AGF Bi"
+        isPrivate
+      />
+      <Route path="/imports" component={Imports} title="Importações | AGF Bi" />
     </Switch>
   );
 };

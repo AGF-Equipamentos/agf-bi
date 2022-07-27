@@ -6,10 +6,12 @@ import {
 } from 'react-router-dom';
 
 import { useAuth } from '../hooks/auth';
+import Page from './Page';
 
 interface RouterProps extends ReactDOMRouterProps {
   isPrivate?: boolean;
   component: React.ComponentType;
+  title?: string;
 }
 
 /**
@@ -24,6 +26,7 @@ interface RouterProps extends ReactDOMRouterProps {
 const Route: React.FC<RouterProps> = ({
   isPrivate = false,
   component: Component,
+  title = 'AGF Bi',
   ...rest
 }) => {
   const { logged } = useAuth();
@@ -34,9 +37,17 @@ const Route: React.FC<RouterProps> = ({
       render={({ location }) => {
         switch (isPrivate) {
           case !!logged:
-            return <Component />;
+            return (
+              <Page title={title}>
+                <Component />
+              </Page>
+            );
           case false:
-            return <Component />;
+            return (
+              <Page title={title}>
+                <Component />
+              </Page>
+            );
           default:
             return (
               <Redirect
