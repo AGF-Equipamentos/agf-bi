@@ -35,13 +35,15 @@ const products = [
   'CE25P',
   'CE25P10001',
   'CF20',
-  'CG20100001',
+  'CG2010001',
   'CG25',
   'CG38',
   'CH250',
   'CH400',
+  'CH400P',
   'CP420',
   'CP420S2',
+  'DC20H',
   'EA66P',
   'ENC10001',
   'FA20H',
@@ -107,14 +109,16 @@ const hours = [
   { product: 'CE25P', hours: 273 },
   { product: 'CE25P10001', hours: 20 },
   { product: 'CF20', hours: 48 },
-  { product: 'CG20100001', hours: 360 },
+  { product: 'CG2010001', hours: 360 },
   { product: 'CG25', hours: 120 },
   { product: 'CG38', hours: 120 },
   { product: 'CH250', hours: 28 },
   { product: 'CH400', hours: 28 },
+  { product: 'CH400P', hours: 28 },
   { product: 'CP420', hours: 24 },
   { product: 'CP420S2', hours: 24 },
-  { product: 'EA66P', hours: 12 },
+  { product: 'DC20H', hours: 100 },
+  { product: 'EA66P', hours: 10 },
   { product: 'ENC10001', hours: 280 },
   { product: 'FA20H', hours: 100 },
   { product: 'FA24H', hours: 100 },
@@ -175,7 +179,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 10525.17;
+  const realizedHours = 11489.8;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
