@@ -101,7 +101,7 @@ const hours = [
   { product: 'APC10001', hours: 120 },
   { product: 'B02M', hours: 113 },
   { product: 'BEF', hours: 160 },
-  { product: 'BH05P', hours: 211 },
+  { product: 'BH05P', hours: 291 },
   { product: 'BH05PREMAN', hours: 106 },
   { product: 'BH05S', hours: 291 },
   { product: 'BH07S', hours: 422 },
