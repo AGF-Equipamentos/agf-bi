@@ -106,7 +106,7 @@ const hours = [
   { product: 'BH05PREMAN', hours: 106 },
   { product: 'BH05S', hours: 291 },
   { product: 'BH07S', hours: 422 },
-  { product: 'BH09s', hours: 900 },
+  { product: 'BH09S', hours: 1100 },
   { product: 'BKC03M', hours: 115 },
   { product: 'BKC03MPROT', hours: 113 },
   { product: 'CE25P', hours: 273 },
