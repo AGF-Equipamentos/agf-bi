@@ -22,6 +22,7 @@ import Revenues from '../pages/Revenues';
 import Imports from '../pages/Imports';
 import SalesCompressors from '../pages/SalesCompressors';
 import SalesPolitriz from '../pages/SalesPolitriz';
+import Stocks from '../pages/Stocks';
 
 const Container = styled.div`
   display: flex;
@@ -142,6 +143,8 @@ const Routes: React.FC = () => {
         title="Faturamento | AGF Bi"
         isPrivate
       />
+      <Route path="/stock" component={Stocks} title="Estoque | AGF Bi" />
+
       <Route path="/imports" component={Imports} title="Importações | AGF Bi" />
     </Switch>
   );

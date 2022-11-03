@@ -97,6 +97,11 @@ const Dashboard: React.FC = () => {
         </Row>
         <Row>
           <Col>
+            <Link to="/stock">
+              <Button style={{ fontSize: 20 }}>Estoque</Button>
+            </Link>
+          </Col>
+          <Col>
             <Link to="/imports">
               <Button style={{ fontSize: 20 }}>Importações</Button>
             </Link>
