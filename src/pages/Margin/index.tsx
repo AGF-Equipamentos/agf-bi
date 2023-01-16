@@ -29,7 +29,7 @@ export interface Data {
 const Margin: React.FC = () => {
   const [productDescription, setProductDescription] = useState('');
   const { data } = useFetch<Data[]>(
-    'fat?filial=0101,0102&ano=2021,2022&devolution=no',
+    'fat?filial=0101,0102&ano=2021,2022,2023&devolution=no',
     {},
     300000,
   );

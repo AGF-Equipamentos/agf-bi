@@ -179,7 +179,7 @@ const ProductivityProduction: React.FC = () => {
     isPaused: true,
   });
   const { data } = useFetch<Data[]>(
-    `ops?filial=0101&fechado=true&ano=2022&produto=${products.join("','")}`,
+    `ops?filial=0101&fechado=true&ano=2023&produto=${products.join("','")}`,
     {},
     6000,
   );
