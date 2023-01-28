@@ -40,7 +40,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "pm2 serve build 9000 --spa"
+    "serve": "pm2 serve build 9002 --spa --name agf-bi",
+    "serve:nodns": "pm2 serve build 9002 --spa --name agf-bi-nodns"
   },
   "browserslist": {
     "production": [
