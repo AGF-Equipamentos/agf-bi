@@ -29,6 +29,7 @@ const products = [
   'BH05P',
   'BH05PREMAN',
   'BH05S',
+  'BH05S2',
   'BH07S',
   'BH09S',
   'BKC03M',
@@ -105,6 +106,7 @@ const hours = [
   { product: 'BH05P', hours: 291 },
   { product: 'BH05PREMAN', hours: 106 },
   { product: 'BH05S', hours: 291 },
+  { product: 'BH05S2', hours: 1100 },
   { product: 'BH07S', hours: 422 },
   { product: 'BH09S', hours: 1100 },
   { product: 'BKC03M', hours: 115 },
@@ -183,7 +185,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 9714.35;
+  const realizedHours = 6711.32;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
