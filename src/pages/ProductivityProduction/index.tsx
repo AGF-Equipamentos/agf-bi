@@ -127,7 +127,7 @@ const hours = [
   { product: 'ENC10001', hours: 280 },
   { product: 'FA20H', hours: 100 },
   { product: 'FA24H', hours: 100 },
-  { product: 'FA24H2', hours: 110 },
+  { product: 'FA24H2', hours: 120 },
   { product: 'GP120', hours: 4 },
   { product: 'GS125', hours: 120 },
   { product: 'GS165', hours: 120 },
