@@ -24,6 +24,7 @@ const products = [
   'AE105',
   'AE340',
   'APC10001',
+  'APC10006',
   'B02M',
   'BEF',
   'BH05P',
@@ -45,6 +46,7 @@ const products = [
   'CH400P',
   'CP420',
   'CP420S2',
+  'CPEPM100',
   'DC20H',
   'EA66P',
   'ENC10001',
@@ -79,6 +81,7 @@ const products = [
   'MRD',
   'MTL12',
   'MTL20',
+  'MV06V',
   'MW46V',
   'MW74V',
   'PC17',
@@ -105,6 +108,7 @@ const hours = [
   { product: 'AE105', hours: 20 },
   { product: 'AE340', hours: 40 },
   { product: 'APC10001', hours: 120 },
+  { product: 'APC10006', hours: 48 },
   { product: 'B02M', hours: 113 },
   { product: 'BEF', hours: 160 },
   { product: 'BH05P', hours: 291 },
@@ -126,6 +130,7 @@ const hours = [
   { product: 'CH400P', hours: 0 },
   { product: 'CP420', hours: 24 },
   { product: 'CP420S2', hours: 24 },
+  { product: 'CPEPM100', hours: 240 },
   { product: 'DC20H', hours: 100 },
   { product: 'EA66P', hours: 12 },
   { product: 'ENC10001', hours: 280 },
@@ -160,6 +165,7 @@ const hours = [
   { product: 'MRD', hours: 360 },
   { product: 'MTL12', hours: 2400 },
   { product: 'MTL20', hours: 2600 },
+  { product: 'MV06V', hours: 800 },
   { product: 'MW46V', hours: 2400 },
   { product: 'MW74V', hours: 3600 },
   { product: 'PC17', hours: 304 },
@@ -193,7 +199,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 10946.1;
+  const realizedHours = 10528.82;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
