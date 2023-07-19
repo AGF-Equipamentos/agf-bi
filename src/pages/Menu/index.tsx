@@ -106,6 +106,13 @@ const Dashboard: React.FC = () => {
               <Button style={{ fontSize: 20 }}>Importações</Button>
             </Link>
           </Col>
+          <Col>
+            <Link to="/acumulatedbystateandgroup">
+              <Button style={{ fontSize: 20 }}>
+                Acumulado por Estado e Grupo
+              </Button>
+            </Link>
+          </Col>
         </Row>
       </Col>
     </Container>

@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import { AxiosRequestConfig } from 'axios';
 import api from '../services/api';
 
 interface Response {
@@ -9,7 +10,7 @@ interface Response {
 
 export function useFetch<Data = any, Error = any>(
   url: string,
-  params: object = {},
+  params: AxiosRequestConfig = {},
   refresh = 120000,
   noCache = false,
 ): Response {
@@ -27,6 +28,7 @@ export function useFetch<Data = any, Error = any>(
     },
     {
       refreshInterval: refresh,
+      revalidateOnFocus: false,
     },
   );
 

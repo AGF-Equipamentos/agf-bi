@@ -23,6 +23,7 @@ import Imports from '../pages/Imports';
 import SalesCompressors from '../pages/SalesCompressors';
 import SalesPolitriz from '../pages/SalesPolitriz';
 import Stocks from '../pages/Stocks';
+import AcumulatedByStateAndGroup from '../pages/AcumulatedByStateAndGroup';
 
 const Container = styled.div`
   display: flex;
@@ -141,6 +142,12 @@ const Routes: React.FC = () => {
         path="/revenues"
         component={Revenues}
         title="Faturamento | AGF Bi"
+        isPrivate
+      />
+      <Route
+        path="/acumulatedbystateandgroup"
+        component={AcumulatedByStateAndGroup}
+        title="Acumulado 12 meses por Estado e Grupo | AGF Bi"
         isPrivate
       />
       <Route path="/stock" component={Stocks} title="Estoque | AGF Bi" />

@@ -4,7 +4,9 @@ import PivotGrid, {
   FieldChooser,
   Scrolling,
 } from 'devextreme-react/pivot-grid';
-import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
+import PivotGridDataSource, {
+  PivotGridDataSourceField,
+} from 'devextreme/ui/pivot_grid/data_source';
 import {
   Button,
   DropdownButton,
@@ -18,32 +20,35 @@ import { useFetch } from '../../hooks/useFetch';
 import Header from '../../components/Header';
 
 export interface Data {
-  PRODUTO: string;
-  DESCRICAO: string;
+  FAT: number;
   ANO: string;
   MES: string;
-  QTD: number;
-  MARGEM: number;
+  GRUPO: string;
+  ESTADO: string;
+  FAT_ACU: number;
 }
 
-const Margin: React.FC = () => {
+const AcumulatedByStateAndGroup: React.FC = () => {
   const [productDescription, setProductDescription] = useState('');
   const { data } = useFetch<Data[]>(
-    'fat?filial=0101,0102&ano=2021,2022,2023&devolution=no',
-    {},
+    'groupfat',
+    {
+      params: {
+        year: ['2020', '2021', '2022', '2023'],
+        branch: ['0101', '0102', '0103'],
+      },
+    },
     1000 * 60 * 60 * 3, // 3 hours,
   );
   const [dataSource, setDataSource] = useState<PivotGridDataSource>();
   const [dataFiltered, setDataFiltered] = useState(data);
-  const [filter, setFilter] = useState('Pesquisar pelo código');
+  const [filter, setFilter] = useState('Pesquisar por estado');
 
   const handleSubmit = useCallback(() => {
     let newData;
-    if (filter === 'Descrição') {
+    if (filter === 'Grupo') {
       newData = data.filter((item: Data) => {
-        if (
-          item.DESCRICAO.includes(`${productDescription.toUpperCase().trim()}`)
-        ) {
+        if (item.GRUPO.includes(`${productDescription.toUpperCase().trim()}`)) {
           return item;
         }
         return null;
@@ -51,7 +56,7 @@ const Margin: React.FC = () => {
     } else {
       newData = data.filter((item: Data) => {
         if (
-          item.PRODUTO.includes(`${productDescription.toUpperCase().trim()}`)
+          item.ESTADO.includes(`${productDescription.toUpperCase().trim()}`)
         ) {
           return item;
         }
@@ -62,65 +67,60 @@ const Margin: React.FC = () => {
     setDataFiltered(newData);
   }, [data, filter, productDescription]);
 
+  const fields: PivotGridDataSourceField[] = [
+    {
+      caption: 'ESTADO',
+      width: 120,
+      dataField: 'ESTADO',
+      showTotals: false,
+      area: 'row',
+    },
+    {
+      caption: 'GRUPO',
+      width: 120,
+      dataField: 'GRUPO',
+      area: 'row',
+      headerFilter: {
+        allowSearch: true,
+      },
+    },
+    {
+      dataField: 'ANO',
+      area: 'column',
+      // expanded: true,
+    },
+    {
+      dataField: 'MES',
+      area: 'column',
+    },
+    {
+      caption: 'VALOR',
+      dataField: 'FAT_ACU',
+      dataType: 'number',
+      format(data2: any) {
+        return `${new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        }).format(data2)}`;
+      },
+      summaryType: 'sum',
+      area: 'data',
+      showGrandTotals: false,
+    },
+  ];
+
   useEffect(() => {
     const lazyLoad = async (): Promise<void> => {
       await new Promise(resolve => setTimeout(resolve, 500));
       const dataSource2 = new PivotGridDataSource({
-        fields: [
-          {
-            caption: 'PRODUTO',
-            width: 120,
-            dataField: 'PRODUTO',
-            showTotals: false,
-            area: 'row',
-          },
-          {
-            caption: 'DESCRIÇÃO',
-            width: 120,
-            dataField: 'DESCRICAO',
-            area: 'row',
-            headerFilter: {
-              allowSearch: true,
-            },
-          },
-          {
-            dataField: 'ANO',
-            area: 'column',
-          },
-          {
-            dataField: 'MES',
-            area: 'column',
-          },
-          {
-            caption: 'MARGEM',
-            dataField: 'MARGEM',
-            dataType: 'number',
-            format(data2: any) {
-              return `${Math.round((data2 + Number.EPSILON) * 100) / 100}%`;
-            },
-            summaryType: 'avg',
-            area: 'data',
-          },
-          {
-            caption: 'VALOR',
-            dataField: 'VALOR',
-            dataType: 'number',
-            format(data2: any) {
-              return `${new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              }).format(data2)}`;
-            },
-            summaryType: 'sum',
-            area: 'data',
-          },
-        ],
+        fields,
         store: dataFiltered,
       });
       setDataSource(dataSource2);
     };
 
     lazyLoad();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataFiltered]);
 
   const isDataCell = useCallback((cell: any): any => {
@@ -194,61 +194,14 @@ const Margin: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 500));
       setDataSource(
         new PivotGridDataSource({
-          fields: [
-            {
-              caption: 'PRODUTO',
-              width: 120,
-              dataField: 'PRODUTO',
-              showTotals: false,
-              area: 'row',
-            },
-            {
-              caption: 'DESCRIÇÃO',
-              width: 120,
-              dataField: 'DESCRICAO',
-              area: 'row',
-              headerFilter: {
-                allowSearch: true,
-              },
-            },
-            {
-              dataField: 'ANO',
-              area: 'column',
-            },
-            {
-              dataField: 'MES',
-              area: 'column',
-            },
-            {
-              caption: 'MARGEM',
-              dataField: 'MARGEM',
-              dataType: 'number',
-              format(data2: any) {
-                return `${Math.round((data2 + Number.EPSILON) * 100) / 100}%`;
-              },
-              summaryType: 'avg',
-              area: 'data',
-            },
-            {
-              caption: 'VALOR',
-              dataField: 'VALOR',
-              dataType: 'number',
-              format(data2: any) {
-                return `${new Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(data2)}`;
-              },
-              summaryType: 'sum',
-              area: 'data',
-            },
-          ],
+          fields,
           store: data,
         }),
       );
     };
 
     lazyLoad();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   if (!data) {
@@ -261,7 +214,7 @@ const Margin: React.FC = () => {
 
   return (
     <Cont>
-      <Header title="Margem dos Produtos" />
+      <Header title="Acumulado 12 meses por Estado e Grupo" />
 
       <Container fluid>
         <InputGroup className="mb-3">
@@ -279,11 +232,11 @@ const Margin: React.FC = () => {
             title={filter}
             id="input-group-dropdown-2"
           >
-            <Dropdown.Item onClick={() => setFilter('Descrição')}>
-              Descrição
+            <Dropdown.Item onClick={() => setFilter('Estado')}>
+              Estado
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => setFilter('Código')}>
-              Código
+            <Dropdown.Item onClick={() => setFilter('Grupo')}>
+              Grupo
             </Dropdown.Item>
           </DropdownButton>
           <InputGroup.Append>
@@ -317,4 +270,4 @@ const Margin: React.FC = () => {
   );
 };
 
-export default Margin;
+export default AcumulatedByStateAndGroup;
