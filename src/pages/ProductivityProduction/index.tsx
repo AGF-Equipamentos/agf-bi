@@ -82,7 +82,7 @@ const products = [
   'MRD',
   'MTL12',
   'MTL20',
-  'MV06V',
+  'MW06V',
   'MW46V',
   'MW74V',
   'PC17',
@@ -167,7 +167,7 @@ const hours = [
   { product: 'MRD', hours: 360 },
   { product: 'MTL12', hours: 2400 },
   { product: 'MTL20', hours: 2600 },
-  { product: 'MV06V', hours: 800 },
+  { product: 'MW06V', hours: 800 },
   { product: 'MW46V', hours: 2400 },
   { product: 'MW74V', hours: 3600 },
   { product: 'PC17', hours: 304 },
@@ -201,7 +201,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 10528.82;
+  const realizedHours = 11023.12;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
