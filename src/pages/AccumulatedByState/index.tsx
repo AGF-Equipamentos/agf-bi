@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import PivotGrid, {
   FieldChooser,
   Scrolling,
+  Export,
 } from 'devextreme-react/pivot-grid';
 import PivotGridDataSource, {
   PivotGridDataSourceField,
@@ -28,10 +29,10 @@ export interface Data {
   FAT_ACU: number;
 }
 
-const AcumulatedByStateAndGroup: React.FC = () => {
+const AccumulatedByState: React.FC = () => {
   const [productDescription, setProductDescription] = useState('');
   const { data } = useFetch<Data[]>(
-    'groupfat',
+    'group-fat-state',
     {
       params: {
         year: ['2020', '2021', '2022', '2023'],
@@ -264,10 +265,11 @@ const AcumulatedByStateAndGroup: React.FC = () => {
         >
           <FieldChooser enabled />
           <Scrolling mode="virtual" />
+          <Export enabled />
         </PivotGrid>
       </div>
     </Cont>
   );
 };
 
-export default AcumulatedByStateAndGroup;
+export default AccumulatedByState;
