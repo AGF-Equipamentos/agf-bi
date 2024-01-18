@@ -7,6 +7,7 @@ export const Container = styled.div`
   padding-bottom: 16px;
 
   #pivot {
+    /* margin: auto; */
     padding: 0 20px 0 20px;
     .dx-scrollable-scroll-content {
       background: RGBA(0, 0, 0, 0.48);
@@ -17,5 +18,10 @@ export const Container = styled.div`
     .dx-scrollbar-horizontal.dx-scrollbar-hoverable {
       height: 8px;
     }
+  }
+
+  #dash {
+    margin: auto;
+    padding: 0 20px 0 20px;
   }
 `;

@@ -217,6 +217,17 @@ const AccumulatedByState: React.FC = () => {
     <Cont>
       <Header title="Acumulado 12 meses por Estado e Grupo" />
 
+      <div id="dash">
+        <iframe
+          title="Acumulado Estado e Grupo"
+          width="1280"
+          height="768"
+          src={process.env.REACT_APP_STOCKS_PB_LINK}
+          frameBorder="0"
+          allowFullScreen
+        />
+      </div>
+
       <Container fluid>
         <InputGroup className="mb-3">
           <FormControl
