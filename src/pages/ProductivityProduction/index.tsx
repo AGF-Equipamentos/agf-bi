@@ -52,6 +52,7 @@ const products = [
   'EA66P',
   'ENC10001',
   'FA20H',
+  'FA20H2',
   'FA24H',
   'FA24H2',
   'GP120',
@@ -78,6 +79,7 @@ const products = [
   'MF75S2',
   'MF75S2E',
   'MF75S3',
+  'MF90S3',
   'MRA',
   'MRD',
   'MTL12',
@@ -85,6 +87,8 @@ const products = [
   'MW06V',
   'MW46V',
   'MW74V',
+  'MW76V',
+  'MW86V',
   'PC17',
   'PC20',
   'PC23',
@@ -137,6 +141,7 @@ const hours = [
   { product: 'EA66P', hours: 12 },
   { product: 'ENC10001', hours: 280 },
   { product: 'FA20H', hours: 100 },
+  { product: 'FA20H2', hours: 120 },
   { product: 'FA24H', hours: 110 },
   { product: 'FA24H2', hours: 120 },
   { product: 'GP120', hours: 4 },
@@ -163,6 +168,7 @@ const hours = [
   { product: 'MF75S2', hours: 131 },
   { product: 'MF75S2E', hours: 132 },
   { product: 'MF75S3', hours: 131 },
+  { product: 'MF90S3', hours: 131 },
   { product: 'MRA', hours: 360 },
   { product: 'MRD', hours: 360 },
   { product: 'MTL12', hours: 2400 },
@@ -170,6 +176,8 @@ const hours = [
   { product: 'MW06V', hours: 800 },
   { product: 'MW46V', hours: 2400 },
   { product: 'MW74V', hours: 3600 },
+  { product: 'MW76V', hours: 3600 },
+  { product: 'MW86V', hours: 3600 },
   { product: 'PC17', hours: 304 },
   { product: 'PC20', hours: 304 },
   { product: 'PC23', hours: 304 },
@@ -201,7 +209,7 @@ const ProductivityProduction: React.FC = () => {
     {},
     6000,
   );
-  const realizedHours = 10406.67;
+  const realizedHours = 11571.49;
   let hoursActualMonth = 0;
   useEffect(() => {
     if (hoursActualMonth) {
