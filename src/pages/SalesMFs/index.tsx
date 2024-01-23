@@ -14,7 +14,7 @@ export interface Data {
 
 const SalesMFs: React.FC = () => {
   const { data } = useFetch<Data[]>(
-    'fat?filial=0101&grupo=0510&ano=2021,%202022,%202023',
+    'fat?filial=0101&grupo=0510&ano=2022,%202023,%202024',
   );
 
   if (!data) {

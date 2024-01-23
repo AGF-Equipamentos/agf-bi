@@ -14,7 +14,7 @@ export interface Data {
 
 const SalesRomp: React.FC = () => {
   const { data } = useFetch<Data[]>(
-    `fat?filial=0101&grupo=0010&ano=2021,%202022,%202023`,
+    `fat?filial=0101&grupo=0010&ano=2022,%202023,%202024ANO`,
   );
 
   if (!data) {

@@ -35,7 +35,7 @@ const AccumulatedBySeller: React.FC = () => {
     'group-fat-seller',
     {
       params: {
-        year: ['2020', '2021', '2022', '2023'],
+        year: ['2021', '2022', '2023', '2024'],
         branch: ['0101', '0102', '0103'],
       },
     },
