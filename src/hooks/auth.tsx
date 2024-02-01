@@ -27,253 +27,253 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [logged, setLogged] = useState<AuthState>({} as AuthState);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    async function loadStorageData(): Promise<void> {
-      const isLogged = localStorage.getItem('@AGF-BI:logged');
-      const fatMFs = localStorage.getItem(
-        `@AGF-BI:fat?filial=0101&grupo=0510&ano=2019,%202020,%202021`,
-      );
-      const fatRomp = localStorage.getItem(
-        `@AGF-BI:fat?filial=0101&grupo=0010&ano=2019,%202020,%202021`,
-      );
-      const fatGer = localStorage.getItem(
-        `@AGF-BI:fat?filial=0101&grupo=0500&ano=2019,%202020,%202021`,
-      );
-      const fatOutros = localStorage.getItem(
-        `@AGF-BI:fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
-      );
-      const opCosts = localStorage.getItem(
-        `@AGF-BI:op-costs?filial=0101&ano=2019,%202020,%202021`,
-      );
-      // const margin = localStorage.getItem(
-      //   `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
-      // );
-      // const productivity = localStorage.getItem(
-      //   `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
-      // );
-      const breakers = localStorage.getItem(
-        `@AGF-BI:pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-      );
-      const breakersStock = localStorage.getItem(
-        `@AGF-BI:estoques?filial=0101&grupo=0010&armazem=01,06`,
-      );
-      const plates = localStorage.getItem(
-        `@AGF-BI:pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-      );
-      const platesStock = localStorage.getItem(
-        `@AGF-BI:estoques?filial=0101&grupo=3050&armazem=01,06`,
-      );
+  // useEffect(() => {
+  //   async function loadStorageData(): Promise<void> {
+  //     const isLogged = localStorage.getItem('@AGF-BI:logged');
+  //     const fatMFs = localStorage.getItem(
+  //       `@AGF-BI:fat?filial=0101&grupo=0510&ano=2022,%202023,%202024`,
+  //     );
+  //     const fatRomp = localStorage.getItem(
+  //       `@AGF-BI:fat?filial=0101&grupo=0010&ano=2022,%202023,%202024`,
+  //     );
+  //     const fatGer = localStorage.getItem(
+  //       `@AGF-BI:fat?filial=0101&grupo=0500&ano=2022,%202023,%202024`,
+  //     );
+  //     const fatOutros = localStorage.getItem(
+  //       `@AGF-BI:fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2022,%202023,%202024`,
+  //     );
+  //     const opCosts = localStorage.getItem(
+  //       `@AGF-BI:op-costs?filial=0101&ano=2022,%202023,%202024`,
+  //     );
+  //     // const margin = localStorage.getItem(
+  //     //   `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
+  //     // );
+  //     // const productivity = localStorage.getItem(
+  //     //   `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
+  //     // );
+  //     const breakers = localStorage.getItem(
+  //       `@AGF-BI:pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //     );
+  //     const breakersStock = localStorage.getItem(
+  //       `@AGF-BI:estoques?filial=0101&grupo=0010&armazem=01,06`,
+  //     );
+  //     const plates = localStorage.getItem(
+  //       `@AGF-BI:pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //     );
+  //     const platesStock = localStorage.getItem(
+  //       `@AGF-BI:estoques?filial=0101&grupo=3050&armazem=01,06`,
+  //     );
 
-      if (isLogged) {
-        setLogged({ logged: JSON.parse(isLogged) });
-      }
+  //     if (isLogged) {
+  //       setLogged({ logged: JSON.parse(isLogged) });
+  //     }
 
-      if (fatMFs) {
-        await mutate(
-          'fat?filial=0101&grupo=0510&ano=2019,%202020,%202021',
-          JSON.parse(fatMFs),
-        );
-      } else {
-        const data = await api
-          .get('fat?filial=0101&grupo=0510&ano=2019,%202020,%202021')
-          .then(res => res.data);
-        await mutate(
-          'fat?filial=0101&grupo=0510&ano=2019,%202020,%202021',
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:fat?filial=0101&grupo=0510&ano=2019,%202020,%202021`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (fatMFs) {
+  //       await mutate(
+  //         'fat?filial=0101&grupo=0510&ano=2022,%202023,%202024',
+  //         JSON.parse(fatMFs),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get('fat?filial=0101&grupo=0510&ano=2022,%202023,%202024')
+  //         .then(res => res.data);
+  //       await mutate(
+  //         'fat?filial=0101&grupo=0510&ano=2022,%202023,%202024',
+  //         data,
+  //       );
+  //       localStorage.setItem(
+  //         `@AGF-BI:fat?filial=0101&grupo=0510&ano=2022,%202023,%202024`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (fatRomp) {
-        await mutate(
-          'fat?filial=0101&grupo=0010&ano=2019,%202020,%202021',
-          JSON.parse(fatRomp),
-        );
-      } else {
-        const data = await api
-          .get('fat?filial=0101&grupo=0010&ano=2019,%202020,%202021')
-          .then(res => res.data);
-        await mutate(
-          'fat?filial=0101&grupo=0010&ano=2019,%202020,%202021',
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:fat?filial=0101&grupo=0010&ano=2019,%202020,%202021`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (fatRomp) {
+  //       await mutate(
+  //         'fat?filial=0101&grupo=0010&ano=2022,%202023,%202024',
+  //         JSON.parse(fatRomp),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get('fat?filial=0101&grupo=0010&ano=2022,%202023,%202024')
+  //         .then(res => res.data);
+  //       await mutate(
+  //         'fat?filial=0101&grupo=0010&ano=2022,%202023,%202024',
+  //         data,
+  //       );
+  //       localStorage.setItem(
+  //         `@AGF-BI:fat?filial=0101&grupo=0010&ano=2022,%202023,%202024`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (fatGer) {
-        await mutate(
-          'fat?filial=0101&grupo=0500&ano=2019,%202020,%202021',
-          JSON.parse(fatGer),
-        );
-      } else {
-        const data = await api
-          .get('fat?filial=0101&grupo=0500&ano=2019,%202020,%202021')
-          .then(res => res.data);
-        await mutate(
-          'fat?filial=0101&grupo=0500&ano=2019,%202020,%202021',
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:fat?filial=0101&grupo=0500&ano=2019,%202020,%202021`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (fatGer) {
+  //       await mutate(
+  //         'fat?filial=0101&grupo=0500&ano=2022,%202023,%202024',
+  //         JSON.parse(fatGer),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get('fat?filial=0101&grupo=0500&ano=2022,%202023,%202024')
+  //         .then(res => res.data);
+  //       await mutate(
+  //         'fat?filial=0101&grupo=0500&ano=2022,%202023,%202024',
+  //         data,
+  //       );
+  //       localStorage.setItem(
+  //         `@AGF-BI:fat?filial=0101&grupo=0500&ano=2022,%202023,%202024`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (fatOutros) {
-        await mutate(
-          `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
-          JSON.parse(fatOutros),
-        );
-      } else {
-        const data = await api
-          .get(
-            `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
-          )
-          .then(res => res.data);
-        await mutate(
-          `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2019,%202020,%202021`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (fatOutros) {
+  //       await mutate(
+  //         `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2022,%202023,%202024`,
+  //         JSON.parse(fatOutros),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get(
+  //           `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2022,%202023,%202024`,
+  //         )
+  //         .then(res => res.data);
+  //       await mutate(
+  //         `fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2022,%202023,%202024`,
+  //         data,
+  //       );
+  //       localStorage.setItem(
+  //         `@AGF-BI:fat?filial=0101&grupo=0050','0060','0070','0090','0094','0501','0502','0503','0520','0530','0540','0550','0560','0570&ano=2022,%202023,%202024`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (opCosts) {
-        await mutate(
-          'op-costs?filial=0101&ano=2019,%202020,%202021',
-          JSON.parse(opCosts),
-        );
-      } else {
-        const data = await api
-          .get('op-costs?filial=0101&ano=2019,%202020,%202021')
-          .then(res => res.data);
-        await mutate('op-costs?filial=0101&ano=2019,%202020,%202021', data);
-        localStorage.setItem(
-          `@AGF-BI:op-costs?filial=0101&ano=2019,%202020,%202021`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (opCosts) {
+  //       await mutate(
+  //         'op-costs?filial=0101&ano=2022,%202023,%202024',
+  //         JSON.parse(opCosts),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get('op-costs?filial=0101&ano=2022,%202023,%202024')
+  //         .then(res => res.data);
+  //       await mutate('op-costs?filial=0101&ano=2022,%202023,%202024', data);
+  //       localStorage.setItem(
+  //         `@AGF-BI:op-costs?filial=0101&ano=2022,%202023,%202024`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      // if (margin) {
-      //   await mutate(
-      //     'fat?filial=0101,0102&ano=2021,2022&devolution=no',
-      //     JSON.parse(margin),
-      //   );
-      // } else {
-      //   const data = await api
-      //     .get('fat?filial=0101,0102&ano=2021,2022&devolution=no')
-      //     .then(res => res.data);
-      //   await mutate('fat?filial=0101,0102&ano=2021,2022&devolution=no', data);
-      //   localStorage.setItem(
-      //     `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
-      //     JSON.stringify(data),
-      //   );
-      // }
+  //     // if (margin) {
+  //     //   await mutate(
+  //     //     'fat?filial=0101,0102&ano=2021,2022&devolution=no',
+  //     //     JSON.parse(margin),
+  //     //   );
+  //     // } else {
+  //     //   const data = await api
+  //     //     .get('fat?filial=0101,0102&ano=2021,2022&devolution=no')
+  //     //     .then(res => res.data);
+  //     //   await mutate('fat?filial=0101,0102&ano=2021,2022&devolution=no', data);
+  //     //   localStorage.setItem(
+  //     //     `@AGF-BI:fat?filial=0101,0102&ano=2021,2022&devolution=no`,
+  //     //     JSON.stringify(data),
+  //     //   );
+  //     // }
 
-      if (breakers) {
-        await mutate(
-          `pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          JSON.parse(breakers),
-        );
-      } else {
-        const data = await api
-          .get(
-            `pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          )
-          .then(res => res.data);
-        await mutate(
-          `pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (breakers) {
+  //       await mutate(
+  //         `pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         JSON.parse(breakers),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get(
+  //           `pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         )
+  //         .then(res => res.data);
+  //       await mutate(
+  //         `pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         data,
+  //       );
+  //       localStorage.setItem(
+  //         `@AGF-BI:pcs?filial=0101&grupo=0010&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (breakersStock) {
-        await mutate(
-          'estoques?filial=0101&grupo=0010&armazem=01,06',
-          JSON.parse(breakersStock),
-        );
-      } else {
-        const data = await api
-          .get('estoques?filial=0101&grupo=0010&armazem=01,06')
-          .then(res => res.data);
-        await mutate('estoques?filial=0101&grupo=0010&armazem=01,06', data);
-        localStorage.setItem(
-          `@AGF-BI:estoques?filial=0101&grupo=0010&armazem=01,06`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (breakersStock) {
+  //       await mutate(
+  //         'estoques?filial=0101&grupo=0010&armazem=01,06',
+  //         JSON.parse(breakersStock),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get('estoques?filial=0101&grupo=0010&armazem=01,06')
+  //         .then(res => res.data);
+  //       await mutate('estoques?filial=0101&grupo=0010&armazem=01,06', data);
+  //       localStorage.setItem(
+  //         `@AGF-BI:estoques?filial=0101&grupo=0010&armazem=01,06`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (plates) {
-        await mutate(
-          `pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          JSON.parse(plates),
-        );
-      } else {
-        const data = await api
-          .get(
-            `pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          )
-          .then(res => res.data);
-        await mutate(
-          `pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          data,
-        );
-        localStorage.setItem(
-          `@AGF-BI:pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (plates) {
+  //       await mutate(
+  //         `pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         JSON.parse(plates),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get(
+  //           `pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         )
+  //         .then(res => res.data);
+  //       await mutate(
+  //         `pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         data,
+  //       );
+  //       localStorage.setItem(
+  //         `@AGF-BI:pcs?filial=0101&grupo=3050&legenda=PENDENTE','ATENDIDO%20PARCIALMENTE`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      if (platesStock) {
-        await mutate(
-          'estoques?filial=0101&grupo=3050&armazem=01,06',
-          JSON.parse(platesStock),
-        );
-      } else {
-        const data = await api
-          .get('estoques?filial=0101&grupo=3050&armazem=01,06')
-          .then(res => res.data);
-        await mutate('estoques?filial=0101&grupo=3050&armazem=01,06', data);
-        localStorage.setItem(
-          `@AGF-BI:estoques?filial=0101&grupo=3050&armazem=01,06`,
-          JSON.stringify(data),
-        );
-      }
+  //     if (platesStock) {
+  //       await mutate(
+  //         'estoques?filial=0101&grupo=3050&armazem=01,06',
+  //         JSON.parse(platesStock),
+  //       );
+  //     } else {
+  //       const data = await api
+  //         .get('estoques?filial=0101&grupo=3050&armazem=01,06')
+  //         .then(res => res.data);
+  //       await mutate('estoques?filial=0101&grupo=3050&armazem=01,06', data);
+  //       localStorage.setItem(
+  //         `@AGF-BI:estoques?filial=0101&grupo=3050&armazem=01,06`,
+  //         JSON.stringify(data),
+  //       );
+  //     }
 
-      // if (productivity) {
-      //   await mutate(
-      //     'ops?filial=0101&fechado=true&ano=2021',
-      //     JSON.parse(productivity),
-      //   );
-      // } else {
-      //   const data = await api
-      //     .get('ops?filial=0101&fechado=true&ano=2021')
-      //     .then(res => res.data);
-      //   await mutate('ops?filial=0101&fechado=true&ano=2021', data);
-      //   localStorage.setItem(
-      //     `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
-      //     JSON.stringify(data),
-      //   );
-      // }
+  //     // if (productivity) {
+  //     //   await mutate(
+  //     //     'ops?filial=0101&fechado=true&ano=2021',
+  //     //     JSON.parse(productivity),
+  //     //   );
+  //     // } else {
+  //     //   const data = await api
+  //     //     .get('ops?filial=0101&fechado=true&ano=2021')
+  //     //     .then(res => res.data);
+  //     //   await mutate('ops?filial=0101&fechado=true&ano=2021', data);
+  //     //   localStorage.setItem(
+  //     //     `@AGF-BI:ops?filial=0101&fechado=true&ano=2021`,
+  //     //     JSON.stringify(data),
+  //     //   );
+  //     // }
 
-      setLoading(false);
-    }
-    loadStorageData();
-  }, []);
+  //     setLoading(false);
+  //   }
+  //   loadStorageData();
+  // }, []);
 
   const signIn = useCallback(async ({ password }) => {
     if (password !== '!agf123#') {
