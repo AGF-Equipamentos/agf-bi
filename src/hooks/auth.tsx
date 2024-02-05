@@ -19,7 +19,7 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [logged, setLogged] = useState<AuthState>({} as AuthState);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const signIn = useCallback(async ({ password }) => {
     if (password !== '!agf123#') {
       setLogged({ logged: false });
