@@ -27,6 +27,7 @@ jobs:
         REACT_APP_PRODUCTIVITY_PB_LINK: ${{ secrets.REACT_APP_PRODUCTIVITY_PB_LINK }}
         REACT_APP_IMPORTEXPORT_PB_LINK: ${{ secrets.REACT_APP_IMPORTEXPORT_PB_LINK }}
         REACT_APP_STOCKS_PB_LINK: ${{ secrets.REACT_APP_STOCKS_PB_LINK }}
+        REACT_APP_AFTERSALES_PB_LINK: ${{ secrets.REACT_APP_AFTERSALES_PB_LINK }}
 
     - name: Copy project to AGF
       uses: appleboy/scp-action@master
