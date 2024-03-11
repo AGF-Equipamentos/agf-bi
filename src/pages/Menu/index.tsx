@@ -107,14 +107,19 @@ const Dashboard: React.FC = () => {
             </Link>
           </Col>
           <Col>
+            <Link to="/aftersales">
+              <Button style={{ fontSize: 20 }}>Custo Pós-Vendas</Button>
+            </Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Link to="/fat-state">
               <Button style={{ fontSize: 20 }}>
                 Fat. Acumulado por Estado
               </Button>
             </Link>
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Link to="/fat-seller">
               <Button style={{ fontSize: 20 }}>
