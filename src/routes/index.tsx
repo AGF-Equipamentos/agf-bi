@@ -25,6 +25,7 @@ import SalesPolitriz from '../pages/SalesPolitriz';
 import Stocks from '../pages/Stocks';
 import AccumulatedByState from '../pages/AccumulatedByState';
 import AccumulatedBySeller from '../pages/AccumulatedBySeller';
+import AfterSales from '../pages/AfterSales';
 
 const Container = styled.div`
   display: flex;
@@ -160,6 +161,12 @@ const Routes: React.FC = () => {
       <Route path="/stock" component={Stocks} title="Estoque | AGF Bi" />
 
       <Route path="/imports" component={Imports} title="Importações | AGF Bi" />
+
+      <Route
+        path="/aftersales"
+        component={AfterSales}
+        title="Custo Pós-Vendas | AGF Bi"
+      />
     </Switch>
   );
 };
